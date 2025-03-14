@@ -65,11 +65,6 @@ function add_category_to_array(&$id, &$category, &$category_arr) {
     $category_item = array(
         'id' => $id,
         'category' => html_entity_decode($category),
-
-        // These array elements will send "category" attribute from table "categorys" and "category" attribute
-        // the table "categories" instead of "category_id" and "category_id" from tables "categorys" 
-        // 'category' => $category,
-        // 'category' => $category,
     );
 
     // this function will loop through category_item and push each element on to the array

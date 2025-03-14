@@ -165,7 +165,7 @@ class Category {
         return false;
     }
 
-        // This method checks to see if an id exists in the authors table.
+    // This method checks to see if an id exists in the authors table.
     // If the id exists, this method returns true. Otherwise it returns false.
     function id_exists() {
         $query = 

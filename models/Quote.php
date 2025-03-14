@@ -19,7 +19,6 @@ class Quote {
         $this->conn = $db;
     }
 
-    /////////////////////////////////
     // Get all  quotes
     public function read() {
 
@@ -49,7 +48,6 @@ class Quote {
         return $stmt;
     }
 
-    /////////////////////////////////
     // Get single Quote
     public function read_single() {
 
@@ -92,18 +90,12 @@ class Quote {
         }
     }
 
-    /////////////////////////////////
     // Create new quote
     public function create() {
 
         if (!$this->check_author_id_and_category_id()) {
             return false;
         }
-
-        // // manually set next value for id
-        // $set_serial_query = 'ALTER SEQUENCE quotes_id_seq RESTART WITH 20;';
-        // $stmt = $this->conn->prepare($set_serial_query);
-        // $stmt->execute();
 
         // Create query
         $query = 'INSERT INTO ' . $this->quotes_table . ' 
@@ -135,7 +127,6 @@ class Quote {
         return false;
     }
 
-    /////////////////////////////////
     // Update existing quote
     public function update() {
 
@@ -181,7 +172,6 @@ class Quote {
         return false;
     }
 
-    /////////////////////////////////
     // Delete quote
     public function delete() {
 
@@ -288,4 +278,4 @@ class Quote {
         }
         return true;
     }
-}   // end of Quote class
+}

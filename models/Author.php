@@ -130,7 +130,6 @@ class Author {
         printf("Error: %s.\n", $stmt->error);
 
         return false;
-
     }
 
     // Delete author

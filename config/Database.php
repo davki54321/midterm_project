@@ -16,22 +16,18 @@ class Database
         $this->password = getenv('PASSWORD');
         $this->dbname = getenv('DBNAME');
         $this->host = getenv('HOST');
-        // $this->port = getenv('PORT');
+        // $this->port = getenv('PORT');    // This line is not required because the port number is hard-coded further down
     }
 
     // DB Connect
     public function connect()
     {
-        // $this->conn = null;
         if ($this->conn) {
             // connection already exists, return it
             return $this->conn;
         } 
         else {
-            $port = 5432;
-            
-            // $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
-            // $dsn = "pgsql:host={$this->host};dbname={$this->dbname};";
+            $port = 5432;   // Tje port number is hard-coded. Render web service does not work properly with the port as an environemnt variable.
             $dsn = "pgsql:host={$this->host};port={$port};dbname={$this->dbname};";
     
             try {
