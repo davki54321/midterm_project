@@ -34,8 +34,21 @@ else {
 
     // Creates category
     if ($category_obj->create()) {
+
+        // Gets the current ID number in quotes table
+        $query = 'select max(id) from categories;';
+        $stmt = $db->query($query);
+        $new_id_arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($new_id_arr as $new_id_single) {
+            $new_id = $new_id_single['max'];
+        }
+
         echo json_encode(
-            array('message' => 'Category Created')
+            array(
+                'id' => $new_id,
+                'category' => $category_obj->category
+            )
         );
     } 
 }
