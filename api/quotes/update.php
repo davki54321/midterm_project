@@ -45,7 +45,12 @@ else {
     // Update quote
     if ($quote_obj->update()) {
         echo json_encode(
-            array('message' => 'Quote Updated')
+            array(
+                'id' => $quote_obj->id,
+                'quote' => $quote_obj->quote,
+                'author_id' => $quote_obj->author_id,
+                'category_id' => $quote_obj->category_id
+            )
         );
     } 
 }

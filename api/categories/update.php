@@ -39,7 +39,10 @@ else {
     // Update category
     if ($category_obj->update()) {
         echo json_encode(
-            array('message' => 'Category Updated')
+            array(
+                'id' => $category_obj->id,
+                'category' => $category_obj->category
+            )
         );
     } 
 }

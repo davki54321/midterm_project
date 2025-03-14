@@ -39,7 +39,10 @@ else {
     // Update author
     if ($author_obj->update()) {
         echo json_encode(
-            array('message' => 'Author Updated')
+            array(
+                'id' => $author_obj->id,
+                'author' => $author_obj->author
+            )
         );
     } 
 }
