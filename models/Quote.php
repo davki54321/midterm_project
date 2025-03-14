@@ -100,12 +100,10 @@ class Quote {
             return false;
         }
 
-
         // // manually set next value for id
         // $set_serial_query = 'ALTER SEQUENCE quotes_id_seq RESTART WITH 20;';
         // $stmt = $this->conn->prepare($set_serial_query);
         // $stmt->execute();
-
 
         // Create query
         $query = 'INSERT INTO ' . $this->quotes_table . ' 

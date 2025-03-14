@@ -42,8 +42,25 @@ else {
 
     // Creates quote
     if ($quote_obj->create()) {
+
+        // Gets the current ID number in quotes table
+        $query = "Select nextval(pg_get_serial_sequence('quotes', 'id')) as new_id;";
+        $stmt = $db->query($query);
+        $new_id_arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($new_id_arr as $new_id_single) {
+            $new_id = $new_id_single['new_id'] - 1;
+        }
+
         echo json_encode(
-            array('message' => 'Quote Created')
+            array(
+                'message' => 'Quote Created',
+                'id' => $new_id,
+                // 'id' => $quote_obj->id,
+                'quote' => $quote_obj->quote,
+                'author_id' => $quote_obj->author_id,
+                'category_id' => $quote_obj->category_id
+            )
         );
     } 
 }
