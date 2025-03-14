@@ -28,8 +28,8 @@ class Database
             return $this->conn;
         } 
         else {
-            $port = 5432;
-            
+            $port = 80;
+
             // $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
             // $dsn = "pgsql:host={$this->host};dbname={$this->dbname};";
             $dsn = "pgsql:host={$this->host};port={$port};dbname={$this->dbname};";
