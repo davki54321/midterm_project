@@ -54,7 +54,7 @@ else {
 
         echo json_encode(
             array(
-                'message' => 'Quote Created',
+                // 'message' => 'Quote Created',
                 'id' => $new_id,
                 // 'id' => $quote_obj->id,
                 'quote' => $quote_obj->quote,
